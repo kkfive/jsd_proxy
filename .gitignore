@@ -1,0 +1,9 @@
+dist
+node_modules
+transpiled
+/.idea/
+.inspirecloud.service.conf
+.local.*
+.env
+*.log
+.inspirecloudignore

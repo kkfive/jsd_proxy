@@ -1,0 +1,49 @@
+{
+  "redirects": [
+    {
+      "source": "/npm/kang-static(.*)",
+      "destination": "https://cdn.jsdelivr.net/npm/kang-static$1",
+      "statusCode": 302
+    },
+    {
+      "source": "/npm/static-butterfly(.*)",
+      "destination": "https://cdn.jsdelivr.net/npm/static-butterfly$1",
+      "statusCode": 302
+    },
+    {
+      "source": "/npm/butterfly-extsrc(.*)",
+      "destination": "https://cdn.jsdelivr.net/npm/butterfly-extsrc$1",
+      "statusCode": 302
+    },
+    {
+      "source": "/npm/flickr-justified-gallery(.*)",
+      "destination": "https://cdn.jsdelivr.net/npm/flickr-justified-gallery$1",
+      "statusCode": 302
+    },
+    {
+      "source": "/npm/@fancyapps(.*)",
+      "destination": "https://cdn.jsdelivr.net/npm/@fancyapps$1",
+      "statusCode": 302
+    },
+    {
+      "source": "/npm/pjax(.*)",
+      "destination": "https://cdn.jsdelivr.net/npm/pjax$1",
+      "statusCode": 302
+    },
+    {
+      "source": "/gh/kkfive/(.*)",
+      "destination": "https://cdn.jsdelivr.net/gh/kkfive/$1",
+      "statusCode": 302
+    },
+    {
+      "source": "/gh/metowolf/(.*)",
+      "destination": "https://cdn.jsdelivr.net/gh/metowolf/$1",
+      "statusCode": 302
+    },
+    {
+      "source": "/(.*)",
+      "destination": "https://www.antmoe.com",
+      "statusCode": 307
+    }
+  ]
+}

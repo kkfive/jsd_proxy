@@ -1,0 +1,63 @@
+# workflow name
+name: Deploy
+
+# master branch on push, auto run
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - name: 检查master分支
+        uses: actions/checkout@master
+
+      - uses: actions/setup-node@main
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - uses: bradyjoslin/setup-wrangler@v1
+        with:
+          wrangler_version: '1.6.0'
+
+      - name: 缓存
+        uses: actions/cache@v2
+        id: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{runner.OS}}-${{hashFiles('./yarn.lock')}}
+
+      - name: 安装依赖
+        if: steps.cache-dependencies.outputs.cache-hit != 'true'
+        run: |
+          yarn install
+
+      - name: 部署 SCF
+        run: |
+          npm i -g serverless-tencent
+          slt credentials set --i ${{ secrets.TENCENT_SECRET_ID }} -k ${{ secrets.TENCENT_SECRET_KEY }} -o
+          slt deploy
+
+      - name: 部署轻服务
+        uses: byteinspire/cloud-project-deployer-action@v1.0.2
+        with:
+          service-id: '${{ secrets.INSPIRE_SERVICE_ID }}'
+          token: '${{ secrets.INSPIRE_ACCESS_TOKEN }}'
+          directory: ./
+
+      - name: 部署CF worker
+        uses: cloudflare/wrangler-action@1.3.0
+        with:
+          apiKey: ${{ secrets.CF_API_KEY }}
+          email: ${{ secrets.CF_EMAIL }}
+
+      - name: 删除 workflow runs
+        uses: Mattraks/delete-workflow-runs@v2
+        with:
+          retain_days: 1
+          keep_minimum_runs: 1
