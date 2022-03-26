@@ -56,6 +56,20 @@ jobs:
           apiKey: ${{ secrets.CF_API_KEY }}
           email: ${{ secrets.CF_EMAIL }}
 
+      - name: 移动vercel配置文件
+        run: |
+          mv vercel.json
+
+      - name: 推送到vercel分支
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: vercel
+          publish_dir: ./dist
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          full_commit_message: ${{ github.event.head_commit.message }}
+
       - name: 删除 workflow runs
         uses: Mattraks/delete-workflow-runs@v2
         with:
