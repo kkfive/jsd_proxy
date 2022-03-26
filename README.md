@@ -14,9 +14,9 @@
 
 ![image-20220326111438275](https://file.acs.pw/picGo/2022/03/26/111445e067a6-1263c44469151910ce94fe2e4241fefd.png)
 
-注意如果你之前修改过`Build & Development Settings`那么请将其还原
+注意：为了防止其他分支部署错误（实际上没什么影响）需要将输出目录修改为public
 
-![image-20220326111532053](https://file.acs.pw/picGo/2022/03/26/11153232973c-481b7ddcaa46d916737559129f0b7d0c.png)
+![image-20220326152002457](https://file.acs.pw/picGo/2022/03/26/152002fe93e5-28b90e6bb341f03c13bf46f58c9839fd.png)
 
 ## Actions 部署 SCF、轻服务、worker
 
