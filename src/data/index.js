@@ -41,7 +41,7 @@ var data = [
   },
 ]
 var defaultConfig = {
-  home: 'https://www.antmoe.com',
+  home: 'https://www.antmoe.com/posts/abeb101d/', // 无匹配时跳转的路径
 }
 exports.data = data
 exports.defaultConfig = defaultConfig

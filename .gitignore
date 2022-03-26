@@ -7,3 +7,4 @@ transpiled
 .env
 *.log
 .inspirecloudignore
+public
