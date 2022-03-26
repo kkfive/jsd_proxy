@@ -14,9 +14,9 @@
 
 ![image-20220326111438275](https://file.acs.pw/picGo/2022/03/26/111445e067a6-1263c44469151910ce94fe2e4241fefd.png)
 
-注意：为了防止其他分支部署错误（实际上没什么影响）需要将输出目录修改为public
+注意：为了防止其他分支部署错误（实际上没什么影响）需要将输出目录修改为`dist`
 
-![image-20220326152002457](https://file.acs.pw/picGo/2022/03/26/152002fe93e5-28b90e6bb341f03c13bf46f58c9839fd.png)
+![image-20220326152225493](https://file.acs.pw/picGo/2022/03/26/152225173c06-4f9e92e74851b2473ba60d298d415ac3.png)
 
 ## Actions 部署 SCF、轻服务、worker
 
